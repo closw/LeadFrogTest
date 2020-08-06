@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_nav_leads"
+        android:icon="@drawable/ic_list"
+        android:title="@string/bottom_nav_leads" />
+
+    <item
+        android:id="@+id/bottom_nav_contacts"
+        android:icon="@drawable/ic_contact_white"
+        android:title="@string/bottom_nav_contacts" />
+
+    <item
+        android:id="@+id/bottom_nav_statistics"
+        android:icon="@drawable/ic_pie_diagram_white"
+        android:title="@string/bottom_nav_statistics" />
+
+</menu>

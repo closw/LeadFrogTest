@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.feature.rootcontainer.MainActivity">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_nav_home"
+            android:orderInCategory="100"
+            android:title="@string/drawer_nav_home"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/drawer_nav_settings"
+            android:orderInCategory="100"
+            android:title="@string/drawer_nav_settings"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/drawer_nav_help"
+            android:orderInCategory="100"
+            android:title="@string/drawer_nav_help"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/drawer_nav_logout"
+            android:orderInCategory="100"
+            android:title="@string/drawer_nav_logout"
+            app:showAsAction="never" />
+    </group>
+</menu>

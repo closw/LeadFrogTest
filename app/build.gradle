@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+//Apply Safe Args Plugin
+apply plugin: 'androidx.navigation.safeargs'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId AndroidDeps.ID
+        minSdkVersion AndroidDeps.MIN_SDK_VERSION
+        targetSdkVersion AndroidDeps.TARGET_SDK_VERSION
+        versionCode AndroidDeps.VERSION_CODE
+        versionName AndroidDeps.VERSION_NAME
+
+        testInstrumentationRunner AndroidDeps.TEST_INSTRUMENTATION_RUNNER
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+        }
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation(KotlinDeps.kotlin)
+    implementation(CoreDeps.appCompat)
+    implementation(CoreDeps.coreKtx)
+    implementation(CoreDeps.constraint)
+    implementation(CoreDeps.lifecycleExt)
+    implementation(JetpackDeps.material)
+    implementation(JetpackDeps.navigation_fragment)
+    implementation(JetpackDeps.navigation_ui)
+    implementation(JetpackDeps.diagrams)
+
+    implementation(DaggerDeps.dagger)
+    kapt DaggerDeps.daggerCompiler
+
+    implementation(RxDeps.rxJava)
+    implementation(RxDeps.rxAndroid)
+    implementation(RxDeps.rxKotlin)
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

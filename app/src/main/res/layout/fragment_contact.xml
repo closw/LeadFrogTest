@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="contact"
+            type="de.leadfrog.app_new.presentation.viewmodel.ContactModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/name_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/name_title"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/name_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/name_title"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{contact.name}"
+            tools:text="Ivanov Ivan Ivanovich"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/name_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="41dp" />
+
+        <TextView
+            android:id="@+id/company_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/company_title"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_guideline" />
+
+        <TextView
+            android:id="@+id/company_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{contact.company}"
+            app:layout_constraintStart_toEndOf="@id/company_title"
+            app:layout_constraintTop_toBottomOf="@+id/name_guideline"
+            tools:text="Super Company" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/company_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="74dp" />
+
+        <TextView
+            android:id="@+id/position_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/position_title"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/company_guideline" />
+
+        <TextView
+            android:id="@+id/position_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/company_guideline"
+            app:layout_constraintStart_toEndOf="@id/position_title"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{contact.position}"
+            tools:text="Super Manager"/>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/position_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="105dp" />
+
+        <TextView
+            android:id="@+id/phone_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/phone_title"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/position_guideline" />
+
+        <TextView
+            android:id="@+id/phone_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/position_guideline"
+            app:layout_constraintStart_toEndOf="@id/phone_title"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{contact.phone}"
+            tools:text="80018141841"/>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/phone_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="140dp" />
+
+        <TextView
+            android:id="@+id/email_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/email_title"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phone_guideline" />
+
+        <TextView
+            android:id="@+id/email_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/phone_guideline"
+            app:layout_constraintStart_toEndOf="@id/email_title"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{contact.email}"
+            tools:text="manager@super.com"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/leads_nav_graph"
+    app:startDestination="@id/leadsFragment">
+
+
+    <fragment
+        android:id="@+id/leadsFragment"
+        android:name="de.leadfrog.app_new.presentation.feature.leads.LeadsFragment"
+        android:label="LeadsFragment"
+        tools:layout="@layout/fragment_leads">
+        <action
+            android:id="@+id/action_to_leadFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right"
+            app:destination="@id/leadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/leadFragment"
+        android:name="de.leadfrog.app_new.presentation.feature.contact.ContactFragment"
+        android:label="LeadFragment"
+        tools:layout="@layout/fragment_contact">
+        <argument
+            android:name="argContact"
+            app:argType="de.leadfrog.app_new.presentation.viewmodel.ContactModel" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="de.leadfrog.app_new.presentation.feature.contacts.ContactsFragment"
+        android:label="ContactsFragment"
+        tools:layout="@layout/fragment_contacts">
+        <action
+            android:id="@+id/action_to_contactFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right"
+            app:destination="@id/contactFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="de.leadfrog.app_new.presentation.feature.contact.ContactFragment"
+        android:label="ContactFragment"
+        tools:layout="@layout/fragment_contact">
+        <argument android:name="argContact"
+            app:argType="de.leadfrog.app_new.presentation.viewmodel.ContactModel" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/diagramsFragment"
+        android:name="de.leadfrog.app_new.presentation.feature.diagrams.DiagramsFragment"
+        android:label="DiagramsFragment"
+        tools:layout="@layout/fragment_diagrams">
+        <action
+            android:id="@+id/action_to_diagramFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right"
+            app:destination="@id/diagramFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/diagramFragment"
+        android:name="de.leadfrog.app_new.presentation.feature.diagram.DiagramFragment"
+        android:label="DiagramFragment" >
+    </fragment>
+</navigation>

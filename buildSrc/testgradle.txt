@@ -1,0 +1,80 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
+plugins {
+    id(GradlePluginId.ANDROID_APPLICATION)
+    kotlin(GradlePluginId.KOTLIN_ANDROID)
+    kotlin(GradlePluginId.KOTLIN_KAPT)
+    kotlin(GradlePluginId.KOTLIN_ANDROID_EXTENSIONS)
+    id(GradlePluginId.KOTLIN_SAFE_ARGS)
+}
+
+android {
+    compileSdkVersion(AndroidDeps.COMPILE_SDK_VERSION)
+    buildToolsVersion = AndroidDeps.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        applicationId = AndroidDeps.ID
+        minSdkVersion(AndroidDeps.MIN_SDK_VERSION)
+        targetSdkVersion(AndroidDeps.TARGET_SDK_VERSION)
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = AndroidDeps.TEST_INSTRUMENTATION_RUNNER
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro')
+        }
+    }
+    dataBinding {
+        isEnabled = true
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation(KotlinDeps.kotlin)
+    implementation(Core.appCompat)
+    implementation(Core.coreKtx)
+    implementation(Core.constraint)
+    testImplementation(TestDeps.JUNIT)
+
+    implementation(Core.recycler)
+    implementation(Core.swipeRefresh)
+
+    implementation(JetpackDeps.material)
+    implementation(JetpackDeps.navigation_fragment)
+    implementation(JetpackDeps.navigation_ui)
+
+    implementation(GlideDeps.glide)
+    kapt(GlideDeps.compiler)
+    implementation(GlideDeps.glideToVector)
+
+    implementation(NetworkDeps.retrofit)
+    implementation(NetworkDeps.converterGson)
+    implementation(NetworkDeps.converterMoshi)
+    implementation(NetworkDeps.adapterRx)
+    implementation(NetworkDeps.loggingInterceptor)
+
+    implementation RoomDeps.runtime
+    implementation RoomDeps.compiler
+    kapt RoomDeps.compiler
+
+    implementation DaggerDeps.dagger
+    kapt DaggerDeps.daggerCompiler
+    implementation DaggerDeps.daggerAndroid
+    implementation DaggerDeps.daggerAndroidSupport
+    kapt DaggerDeps.daggerAndroidProcessor
+
+    implementation RxDeps.rxJava
+    implementation RxDeps.rxAndroid
+}
